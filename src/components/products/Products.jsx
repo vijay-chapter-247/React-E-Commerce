@@ -32,7 +32,12 @@ const Products = () => {
                             products.map((product) => {
                                 return (
                                     <div className="box" key={product.id}>
-                                        <img src={product.image} alt="Image_Not_Found" />
+                                        {
+                                            product.image ?
+                                            <img src={product.image} alt="Image_Not_Found" /> :
+                                            <Loading />
+
+                                        }
                                         <font>{product.category}</font>
                                         <p className="wrap-text-2 px-3">{product.title}</p>
 
