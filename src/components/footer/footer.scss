@@ -1,0 +1,31 @@
+@import "../../scss/variables";
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px 30px 30px;
+
+    a,
+    p {
+        color: #5e5e5e;
+    }
+}
+footer a {
+    &:hover {
+        color: $success;
+    }
+}
+
+@media (max-width: 720px) {
+    footer p,
+    a {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 10px;
+    }
+}

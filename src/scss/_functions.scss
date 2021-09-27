@@ -1,0 +1,8 @@
+
+@function half($width) {
+    @return $width/2 + px;
+}
+
+@function col($width) {
+    @return $width/4 + px;
+}

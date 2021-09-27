@@ -1,0 +1,21 @@
+@import '../../scss/variables';
+
+.err {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 74vh;
+
+    h1 {
+        font-size: 2em;
+        color: $success;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        text-align: center;
+    }
+}
+

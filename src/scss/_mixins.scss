@@ -1,0 +1,26 @@
+@mixin border-radius($value: 10px) {
+    border-radius: $value;
+}
+
+@mixin textWrap($value) {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    -webkit-line-clamp: $value !important;
+}
+
+.wrap--text--1 {
+    @include textWrap(1);
+}
+
+.wrap--text--2 {
+    @include textWrap(2);
+}
+
+.wrap--text--4 {
+    @include textWrap(4);
+}
+
+.wrap--text--3 {
+    @include textWrap(3);
+}

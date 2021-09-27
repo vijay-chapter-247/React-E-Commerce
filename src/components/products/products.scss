@@ -1,0 +1,112 @@
+@import "../../scss/variables";
+
+.btn-full {
+    color: $white;
+    background-color: $success !important;
+    transition: all 0.3s ease-in-out ;
+
+    &:hover {
+        background: white !important;
+        color: $success;
+    }
+}
+
+.services-heading {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    h2 {
+        line-height: 55px;
+        font-size: 2.2rem;
+        color: $success;
+        letter-spacing: 1px;
+        font-weight: 700;
+        margin: 0px;
+    }
+
+    p {
+        font-size: 1rem;
+        color: #777474;
+        width: 50%;
+        line-height: 25px;
+    }
+}
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 30px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    text-align: center;
+    box-shadow: 2px 2px 20px rgba(90, 118, 253, 0.15);
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 20px;
+    flex-grow: 1;
+    border: 1px solid $success;
+
+    img {
+        height: 150px;
+        margin: 10px;
+    }
+
+    font {
+        font-size: 1.5rem;
+        color: $success;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    p {
+        margin: 20px 0px;
+        line-height: 25px;
+        font-size: 1rem;
+        color: #777474;
+        display: block;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 720px) {
+    .services-heading {
+        margin: 20px;
+
+        h2 {
+            font-size: 1.7rem;
+            line-height: 40px;
+        }
+        p {
+            width: 100%;
+        }
+    }
+    .box {
+        width: 100%;
+        margin: 20px 0px !important;
+        padding: 0px 20px;
+        flex-grow: 1;
+
+        img {
+            height: 100px;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}
