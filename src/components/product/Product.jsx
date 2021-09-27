@@ -20,7 +20,7 @@ const Product = () => {
             console.log('Something went wrong!')
         }
     }
-    console.log(product);
+
     return (
         <>
             {
@@ -29,7 +29,7 @@ const Product = () => {
                         {
                             <div className="details" key={product.id}>
                                 <div className="big-img">
-                                    <img src={product.image} alt="" />
+                                    <img src={product.image} alt="Image_Not_Found"/>
                                 </div>
 
                                 <div className="box-1 border">
@@ -40,7 +40,7 @@ const Product = () => {
 
                                     <p className="font-weight-bold">{product.title}</p>
 
-                                    <p className="text-justify">{product.description}</p>
+                                    <p className="text-justify wrap-text-6">{product.description}</p>
 
                                     <button className="btn btn-success btn-outlined-success btn-full mt-5">
                                         Buy Now

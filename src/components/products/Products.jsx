@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import Loading from '../loading/Loading';
+
+import LazyLoad from "react-lazyload";
 import './products.scss'
 
 const Products = () => {
@@ -31,19 +33,23 @@ const Products = () => {
                         {
                             products.map((product) => {
                                 return (
-                                    <div className="box" key={product.id}>
-                                        {
-                                            product.image ?
-                                            <img src={product.image} alt="Image_Not_Found" /> :
-                                            <Loading />
+                                    <div className="box position-relative-price" key={product.id} >
+                                        <LazyLoad height={150} once>
+                                            <NavLink to={`/product/${product.id}`}>
+                                                    <img src={product.image} alt="Image_Not_Found" />
+                                                    <span className="font-weight-bold position-absolute-price" >${product.price}</span>
+                                            </NavLink>
+                                        </LazyLoad>
 
-                                        }
-                                        <font>{product.category}</font>
+                                        <NavLink to={`/product/${product.id}`}>
+                                            <font>{product.category}</font>
+                                        </NavLink>
+
                                         <p className="wrap-text-2 px-3">{product.title}</p>
 
                                         <NavLink to={`/product/${product.id}`} >
                                             <button className="btn btn-success btn-outlined-success btn-full">
-                                                $ {product.price}
+                                                View
                                             </button>
                                         </NavLink>
                                     </div>

@@ -15,6 +15,11 @@
   font-size: 16px;
 }
 
+::selection {
+  color: $white;
+  background: $success;
+}
+
 .text-justify {
   text-align: justify;
   text-justify: inter-word;
@@ -200,10 +205,18 @@
   }
 }
 
-
-
 @for $i from 1 through 100 {
   .mt-n#{$i} {
     margin-top: -4px * $i;
+  }
+}
+
+
+@for $i from 1 through 100 {
+  .wrap-text-#{$i} {
+    display: -webkit-box;
+    -webkit-line-clamp: $i;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

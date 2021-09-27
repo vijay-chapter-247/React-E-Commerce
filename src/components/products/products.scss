@@ -63,17 +63,21 @@
     }
 
     font {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: $success;
         letter-spacing: 1px;
         font-weight: 700;
         text-transform: capitalize;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     p {
         margin: 20px 0px;
         line-height: 25px;
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #777474;
         display: block;
         display: -webkit-box;
@@ -109,4 +113,14 @@
             object-fit: contain;
         }
     }
+}
+
+.position-relative-price {
+    position: relative;
+}
+.position-absolute-price {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: $success;
 }
