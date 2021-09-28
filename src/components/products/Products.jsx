@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import Loading from '../loading/Loading';
 
-import LazyLoad from "react-lazyload";
 import './products.scss'
 
 const Products = () => {
@@ -34,18 +33,16 @@ const Products = () => {
                             products.map((product) => {
                                 return (
                                     <div className="box position-relative-price" key={product.id} >
-                                        <LazyLoad height={150} once>
                                             <NavLink to={`/product/${product.id}`}>
                                                     <img src={product.image} alt="Image_Not_Found" />
                                                     <span className="font-weight-bold position-absolute-price" >${product.price}</span>
                                             </NavLink>
-                                        </LazyLoad>
 
                                         <NavLink to={`/product/${product.id}`}>
                                             <font>{product.category}</font>
                                         </NavLink>
 
-                                        <p className="wrap-text-2 px-3">{product.title}</p>
+                                        <p className="wrap-text-1 px-3">{product.title}</p>
 
                                         <NavLink to={`/product/${product.id}`} >
                                             <button className="btn btn-success btn-outlined-success btn-full">
