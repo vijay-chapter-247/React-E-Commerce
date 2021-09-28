@@ -6,7 +6,7 @@ import ReactStars from "react-rating-stars-component";
 import { useParams } from 'react-router-dom';
 import './product.scss'
 
-const Product = () => {
+const Product = (props) => {
     const [product, setProduct] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -14,7 +14,7 @@ const Product = () => {
     const { id } = useParams();
     useEffect(() => {
         getProducts();
-    }, []);
+    }, [props.match.params.id]);
     const getProducts = async () => {
         try {
             const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
@@ -34,8 +34,10 @@ const Product = () => {
             console.log("Something went wrong!", err)
         }
     }
-
     const selectedProduct = similarProduct.filter(pro => pro.id !== product.id);
+    // const updateData = () => {
+    //     getProducts();
+    // }
 
     return (
         <>
@@ -65,7 +67,6 @@ const Product = () => {
                                         value={product.rating['rate']}
                                         isHalf={true}
                                     />
-
                                     <button className="btn btn-success btn-outlined-success btn-full mt-5">
                                         Buy Now
                                     </button>

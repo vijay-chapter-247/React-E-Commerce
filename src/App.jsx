@@ -17,7 +17,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/products" exact render={() => <Products />} />
-        <Route path="/product/:id" exact component={() => <Product />} />
+        <Route path="/product/:id" exact render={(props) => <Product {...props}/>} />
         <Route path="/login" exact component={Login} />
         <Route component={Error} />
       </Switch>

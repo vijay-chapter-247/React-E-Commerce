@@ -3,7 +3,7 @@
 .btn-full {
     color: $white;
     background-color: $success !important;
-    transition: all 0.3s ease-in-out ;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
         background: white !important;
@@ -119,8 +119,10 @@
         flex-grow: 1;
 
         img {
-            height: 130px;
+            height: 150px;
             width: 100%;
+            margin: 10px 10px 10px 0px;
+
             object-fit: contain;
         }
     }
