@@ -56,10 +56,21 @@
     margin: 20px;
     flex-grow: 1;
     border: 1px solid $success;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+        margin-bottom: 30px;
+        box-shadow: 0 0 20px $success;
+    }
 
     img {
         height: 150px;
         margin: 10px;
+        transition: all 0.3s ease-in;
+
+        &:hover {
+            margin-bottom: 30px;
+        }
     }
 
     font {

@@ -2,22 +2,15 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Loading from '../loading/Loading';
 import { NavLink } from 'react-router-dom'
-
-import './product.scss'
+import ReactStars from "react-rating-stars-component";
 import { useParams } from 'react-router-dom';
+import './product.scss'
 
 const Product = () => {
     const [product, setProduct] = useState([]);
-
     const [similarProduct, setSimilarProduct] = useState([]);
-
-
     const [loading, setLoading] = useState(false);
-
     const [load, setLoad] = useState(false);
-
-
-
     const { id } = useParams();
     useEffect(() => {
         getProducts();
@@ -27,15 +20,14 @@ const Product = () => {
             const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
             setProduct(data);
             setLoading(true);
-            getSimilarProducts();
+            getSimilarProducts(data.category);
         } catch (err) {
             console.log('Something went wrong!', err)
         }
     }
-
-    const getSimilarProducts = async () => {
+    const getSimilarProducts = async (category) => {
         try {
-            const { data } = await axios.get(`https://fakestoreapi.com/products/category/${product.category}`);
+            const { data } = await axios.get(`https://fakestoreapi.com/products/category/${category}`);
             setSimilarProduct(data);
             setLoad(true);
         } catch (err) {
@@ -43,7 +35,7 @@ const Product = () => {
         }
     }
 
-    console.log(similarProduct);
+    const selectedProduct = similarProduct.filter(pro => pro.id !== product.id);
 
     return (
         <>
@@ -65,6 +57,15 @@ const Product = () => {
                                     <p className="font-weight-bold">{product.title}</p>
                                     <p className="text-justify wrap-text-6">{product.description}</p>
 
+                                    <ReactStars
+                                        count={5}
+                                        size={32}
+                                        activeColor="#4bae51"
+                                        edit={false}
+                                        value={product.rating['rate']}
+                                        isHalf={true}
+                                    />
+
                                     <button className="btn btn-success btn-outlined-success btn-full mt-5">
                                         Buy Now
                                     </button>
@@ -76,9 +77,9 @@ const Product = () => {
             }
 
             {
-                load ? <div>
+                load ? <div className="box-container">
                     {
-                        similarProduct.map((product) => {
+                        selectedProduct.map((product) => {
                             return (
                                 <div className="box position-relative-price" key={product.id} >
                                     <NavLink to={`/product/${product.id}`}>
@@ -92,7 +93,7 @@ const Product = () => {
 
                                     <p className="wrap-text-1 px-3">{product.title}</p>
 
-                                    <NavLink to={`/product/${product.id}`} >
+                                    <NavLink to={`/product/${product.id}`}>
                                         <button className="btn btn-success btn-outlined-success btn-full">
                                             View
                                         </button>
