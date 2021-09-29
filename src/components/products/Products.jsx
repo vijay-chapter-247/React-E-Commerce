@@ -1,8 +1,7 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
 import Loading from '../loading/Loading';
-
+import axios from 'axios';
 import './products.scss'
 
 const Products = () => {
@@ -31,20 +30,18 @@ const Products = () => {
                     <div className="box-container" >
                         {
                             products.map((product) => {
+                                const { id, image, price, category, title, } = product;
                                 return (
-                                    <div className="box position-relative-price" key={product.id} >
-                                            <NavLink to={`/product/${product.id}`}>
-                                                    <img src={product.image} alt="Image_Not_Found" />
-                                                    <span className="font-weight-bold position-absolute-price" >${product.price}</span>
-                                            </NavLink>
-
-                                        <NavLink to={`/product/${product.id}`}>
-                                            <font>{product.category}</font>
+                                    <div className="box position-relative-price" key={id} >
+                                        <NavLink to={`/product/${id}`}>
+                                            <img src={image} alt="Image_Not_Found" />
+                                            <span className="font-weight-bold position-absolute-price" >${price}</span>
                                         </NavLink>
-
-                                        <p className="wrap-text-1 px-3">{product.title}</p>
-
-                                        <NavLink to={`/product/${product.id}`} >
+                                        <NavLink to={`/product/${id}`}>
+                                            <font>{category}</font>
+                                        </NavLink>
+                                        <p className="wrap-text-1 px-3">{title}</p>
+                                        <NavLink to={`/product/${id}`} >
                                             <button className="btn btn-success btn-outlined-success btn-full">
                                                 View
                                             </button>

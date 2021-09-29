@@ -7,17 +7,15 @@ import Product from './components/product/Product'
 import Login from './components/login/Login'
 import Error from './components/error/Error'
 import { Route, Switch } from "react-router-dom";
-// import axios from 'axios';
-// axios.defaults.baseURL = "https://fakestoreapi.com/products"
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/products" exact render={() => <Products />} />
-        <Route path="/product/:id" exact render={(props) => <Product {...props}/>} />
+        <Route path="/product/:id" exact render={() => <Product />} />
         <Route path="/login" exact component={Login} />
         <Route component={Error} />
       </Switch>
