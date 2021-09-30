@@ -30,7 +30,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="home-content mb-15">
+            <div className="home-content mb-25">
                 <div className="home-text">
                     <h1>Lorem ipsum</h1>
                     <p className="mt-2 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi incidunt modi placeat illo aut. Ad expedita error, incidunt voluptate deleniti fuga eos at quibusdam quidem illum provident delectus nam! Perspiciatis.</p>
