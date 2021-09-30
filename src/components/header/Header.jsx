@@ -7,9 +7,9 @@ const Header = () => {
         <>
             <section className="main mb-40">
                 <nav>
-                    <a href="/" className="logo">
+                    <NavLink to="/" className="logo">
                         <img src="/logo.jpg" alt="Image_Not_Found" />
-                    </a>
+                    </NavLink>
 
                     <input className="menu-btn" type="checkbox" id="menu-btn" />
 

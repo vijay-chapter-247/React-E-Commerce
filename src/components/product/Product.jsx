@@ -43,7 +43,7 @@ const Product = () => {
                     <div className="app">
                         {
                             <div className="details" key={product.id}>
-                                <div className="big-img">
+                                <div className="big-img animated">
                                     <img src={image} alt="Image_Not_Found" />
                                 </div>
                                 <div className="box-1 border">
@@ -101,3 +101,5 @@ const Product = () => {
 }
 
 export default Product;
+
+

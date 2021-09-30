@@ -24,6 +24,28 @@
   text-align: justify;
   text-justify: inter-word;
 }
+
+.animated {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@-webkit-keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
 .btn {
   background: none;
   padding: 10px 20px;
@@ -211,12 +233,17 @@
   }
 }
 
-
 @for $i from 1 through 100 {
   .wrap-text-#{$i} {
     display: -webkit-box !important;
     -webkit-line-clamp: $i !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
+  }
+}
+
+@for $i from 1 through 12 {
+  .order-#{$i} {
+    order: $i;
   }
 }

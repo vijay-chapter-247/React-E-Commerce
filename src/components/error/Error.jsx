@@ -6,9 +6,9 @@ const Error = () => {
     return (
         <>
             <div className="err">
-                <h1>404 Page Not Found</h1>
+                <h1 className="animated">404 Page Not Found</h1>
                 <NavLink to="/">
-                    <button className="btn btn-success btn-outlined-success">Go To Home</button>
+                    <button className="btn btn-success btn-outlined-success mt-5">Go To Home</button>
                 </NavLink>
             </div>
         </>
