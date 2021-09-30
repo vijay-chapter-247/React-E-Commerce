@@ -24,8 +24,7 @@ const Products = () => {
             {
                 loading ? <section className="services" >
                     <div className="services-heading">
-                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                        <p className="control-line-height">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus quod modi inventore dolorem ipsa sed repudiandae quia numquam nostrum molestiae?</p>
+                        <h2>Lorem ipsum dolor sit.</h2>
                     </div>
                     <div className="box-container" >
                         {

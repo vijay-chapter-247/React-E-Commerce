@@ -26,7 +26,7 @@ html {
 	justify-content: center;
 	align-items: center;
 	max-width: 80rem;
-	min-height: 100vh;
+	// min-height: 100vh;
 	width: 100%;
 	padding: 0 2rem;
 	margin: 0 auto;
@@ -66,10 +66,16 @@ html {
 		max-width: 28rem;
 		width: 100%;
 		margin: 0px auto;
-		padding: 2rem 2.5rem;
+		padding: 5rem 1rem;
 		border-radius: 0.25rem;
 		border: 1px solid $success;
 		box-shadow: 0 0 5px $success;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			box-shadow: 0 0 20px $success;
+			margin-top: 10px;
+		}
 
 		.form {
 			width: 100%;
@@ -177,4 +183,28 @@ html {
 			}
 		}
 	}
+}
+.btn-rounded {
+	border-radius: 50px !important;
+	width: 100%;
+}
+
+.d-flex {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.text-success{
+	color: $success;
+}
+
+.bg-white-radius {
+	background: #f1f9f3;
+	padding: 20px 0px;
+	border-radius: 20px;
+}
+
+.p-relative {
+	position: relative;
 }

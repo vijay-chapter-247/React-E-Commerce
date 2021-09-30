@@ -20,19 +20,10 @@
     flex-direction: column;
 
     h2 {
+        font-size: 2rem;
         line-height: 55px;
-        font-size: 2.2rem;
         color: $success;
-        letter-spacing: 1px;
         font-weight: 700;
-        margin: 0px;
-    }
-
-    p {
-        font-size: 1rem;
-        color: #777474;
-        width: 50%;
-        line-height: 25px;
     }
 }
 .box-container {
@@ -102,14 +93,11 @@
 
 @media (max-width: 720px) {
     .services-heading {
-        margin: 20px;
+        margin: 10px 20px;
 
         h2 {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             line-height: 40px;
-        }
-        p {
-            width: 100%;
         }
     }
     .box {

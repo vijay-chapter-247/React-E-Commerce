@@ -25,6 +25,10 @@
   text-justify: inter-word;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
@@ -56,6 +60,7 @@
   overflow: hidden;
   text-transform: capitalize;
   font-weight: bold;
+  outline: none;
 
   &:hover {
     color: $white;
