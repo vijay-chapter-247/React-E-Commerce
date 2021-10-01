@@ -1,11 +1,18 @@
 import React from 'react'
 import './header.scss'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
+    const history = useHistory();
+    const Logout = () => {
+        localStorage.clear();
+        history.push('/');
+        props.Toggle();
+    }
+
     return (
         <>
-            <section className="main mb-40">
+            <section className="main">
                 <nav>
                     <NavLink to="/" className="logo">
                         <img src="/logo.jpg" alt="Image_Not_Found" />
@@ -32,20 +39,40 @@ const Header = () => {
                                 </button>
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/add">
-                                <button className="btn btn-success btn-outlined-success mx-2">
-                                    Add Product
+                        {
+                            !props.toggle && <li>
+                                <NavLink to="/profile">
+                                    <button className="btn btn-success btn-outlined-success mx-2">
+                                        Profile
+                                    </button>
+                                </NavLink>
+                            </li>
+                        }
+                        {
+                            !props.toggle && <li>
+                                <NavLink to="/add">
+                                    <button className="btn btn-success btn-outlined-success mx-2">
+                                        Add Product
+                                    </button>
+                                </NavLink>
+                            </li>
+                        }
+
+                        {
+                            props.toggle ? <li>
+                                <NavLink to="/login">
+                                    <button className="btn btn-success btn-outlined-success mx-2">
+                                        Login
+                                    </button>
+                                </NavLink>
+                            </li> : <li>
+                                <button className="btn btn-success btn-outlined-success mx-2" onClick={Logout}>
+                                    Logout
                                 </button>
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/login">
-                                <button className="btn btn-success btn-outlined-success mx-2">
-                                    Login
-                                </button>
-                            </NavLink>
-                        </li>
+                            </li>
+
+                        }
+
                     </ul>
                 </nav>
             </section>

@@ -18,10 +18,10 @@ nav {
     justify-content: space-between;
     padding: 10px 30px;
     background-color: white;
-    box-shadow: 2px 2px 20px #5a76fd21;
+    box-shadow: 0 0 10px $success;
     z-index: 1;
     width: 100%;
-    position: fixed;
+    position: relative;
     left: 0px;
     top: 0px;
 

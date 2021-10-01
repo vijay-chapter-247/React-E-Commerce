@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import Snackbar from '../snackbar/Snackbar';
 import './login.scss';
+import { useHistory } from 'react-router';
 
-const Login = () => {
+const Login = (props) => {
 
+    const history = useHistory();
     const [users, setUsers] = useState([]);
     const [snackbar, setSnackbar] = useState(true);
     const [user, setUser] = useState({
         email: "",
         password: ""
     });
-
     useEffect(() => {
         getUsers();
     }, []);
-
     const InputEvent = (event) => {
         const { name, value } = event.target;
         setUser((oldData) => {
@@ -25,7 +25,6 @@ const Login = () => {
             }
         });
     }
-
     const getUsers = async () => {
         try {
             const { data } = await axios.get('https://fakestoreapi.com/users');
@@ -34,15 +33,14 @@ const Login = () => {
             console.log('Something went wrong!', err)
         }
     }
-
     const SubmitEvent = (event) => {
         event.preventDefault();
-
-        const login = users.filter((u) => ((u.password === user.password) && (u.email === u.email)));
-
-        if (login.length > 0) {
+        const login = users.filter((u) => ((u.password === user.password) && (u.email === user.email)));
+        if (!localStorage.getItem('loginUser')) {
             // Put the object into storage
             localStorage.setItem('loginUser', JSON.stringify(login[0]));
+            props.Toggle();
+            history.push('/profile');
         }
         else {
             setSnackbar(false);
@@ -53,16 +51,10 @@ const Login = () => {
         setUser({ email: "", password: "" });
     }
 
-    // Retrieve the object from storage
-
-    if (localStorage.length > 0) {
-        const retrievedObject = localStorage.getItem('loginUser');
-        console.log('retrievedObject: ', JSON.parse(retrievedObject));
-    }
 
     return (
         <>
-            <main className="main">
+            <main className="main mt-10">
                 <div className="container">
                     <div className="wrapper p-relative">
                         <div className="heading">
@@ -72,10 +64,10 @@ const Login = () => {
                         </div>
                         <form onSubmit={SubmitEvent} className="form">
                             <div className="input-control">
-                                <input type="email" name="email" className="input-field" placeholder="john@gmail.com" value={user.email} onChange={InputEvent} />
+                                <input type="email" name="email" className="input-field" placeholder="john@gmail.com" required value={user.email} onChange={InputEvent} />
                             </div>
                             <div className="input-control">
-                                <input type="password" name="password" className="input-field" placeholder="m38rmF$" value={user.password} onChange={InputEvent} />
+                                <input type="password" name="password" className="input-field" placeholder="m38rmF$" required value={user.password} onChange={InputEvent} />
                             </div>
                             <div className="input-control">
                                 <button className="btn btn-success btn-outlined-success btn-full btn-rounded">Login</button>

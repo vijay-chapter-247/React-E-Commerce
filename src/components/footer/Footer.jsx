@@ -5,12 +5,11 @@ import ScrollButton from '../scroll-button/ScrollButton';
 const Footer = () => {
     return (
         <>
-            <footer>
-                <a href="/">Lorem ipsum dolor sit amet.</a>
-
-
-      <ScrollButton />
-
+            <footer className="mt-10">
+                <div className="footer">
+                    <a href="/">Lorem ipsum dolor sit amet.</a>
+                    <ScrollButton />
+                </div>
             </footer>
         </>
     )

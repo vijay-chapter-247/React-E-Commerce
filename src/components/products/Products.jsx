@@ -23,7 +23,7 @@ const Products = () => {
         <>
             {
                 loading ? <section className="services" >
-                    <div className="services-heading">
+                    <div className="services-heading mt-10">
                         <h2>Lorem ipsum dolor sit.</h2>
                     </div>
                     <div className="box-container" >
@@ -33,7 +33,8 @@ const Products = () => {
                                 return (
                                     <div className="box position-relative-price" key={id} >
                                         <NavLink to={`/product/${id}`}>
-                                            <img src={image} alt="Image_Not_Found" />
+
+                                            <img src={image} alt="Image_Not_Found"/>
                                             <span className="font-weight-bold position-absolute-price" >${price}</span>
                                         </NavLink>
                                         <NavLink to={`/product/${id}`}>

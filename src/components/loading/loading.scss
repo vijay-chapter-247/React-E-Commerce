@@ -10,7 +10,7 @@
 }
 
 .spinner {
-    --color: rgb(0 255 155);
+    --color: #4bae51;
     --fade-color: rgba(0 255 155 / 50%);
     --scale: 1;
     --x-speed: 1;
@@ -46,7 +46,7 @@
     height: 12px;
     top: 50%;
     transform: translateY(-50%) scale(.3);
-    background-color: rgba(var(--color) / 50%);
+    background-color: #4bae51;
     border-radius: 50%;
     animation: ps-spinner-scale calc(1.2s / var(--x-speed)) linear infinite
 }
