@@ -13,18 +13,18 @@ const Product = () => {
     const [load, setLoad] = useState(false);
     const { id } = useParams();
     useEffect(() => {
+        const getProducts = async () => {
+            try {
+                const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
+                setProduct(data);
+                setLoading(true);
+                getSimilarProducts(data.category);
+            } catch (err) {
+                console.log('Something went wrong!', err)
+            }
+        }
         getProducts();
     }, [id]);
-    const getProducts = async () => {
-        try {
-            const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
-            setProduct(data);
-            setLoading(true);
-            getSimilarProducts(data.category);
-        } catch (err) {
-            console.log('Something went wrong!', err)
-        }
-    }
     const getSimilarProducts = async (category) => {
         try {
             const { data } = await axios.get(`https://fakestoreapi.com/products/category/${category}`);

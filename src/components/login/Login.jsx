@@ -5,7 +5,6 @@ import './login.scss';
 import { useHistory } from 'react-router';
 
 const Login = (props) => {
-
     const history = useHistory();
     const [users, setUsers] = useState([]);
     const [snackbar, setSnackbar] = useState(true);
@@ -50,51 +49,52 @@ const Login = (props) => {
         }
         setUser({ email: "", password: "" });
     }
-
-
     return (
         <>
-            <main className="main mt-10">
-                <div className="container">
-                    <div className="wrapper p-relative">
-                        <div className="heading">
-                            <div className="bg-white-radius">
-                                <h1 className="text text-success text-large text-center">Sign In</h1>
+            {
+                !localStorage.getItem('loginUser') ?
+                    <main className="main mt-10">
+                        <div className="container">
+                            <div className="wrapper p-relative">
+                                <div className="heading">
+                                    <div className="bg-white-radius">
+                                        <h1 className="text text-success text-large text-center">Sign In</h1>
+                                    </div>
+                                </div>
+                                <form onSubmit={SubmitEvent} className="form">
+                                    <div className="input-control">
+                                        <input type="email" name="email" className="input-field" placeholder="john@gmail.com" required autoComplete="off" value={user.email} onChange={InputEvent} />
+                                    </div>
+                                    <div className="input-control">
+                                        <input type="password" name="password" className="input-field" placeholder="m38rmF$" required autoComplete="off" value={user.password} onChange={InputEvent} />
+                                    </div>
+                                    <div className="input-control">
+                                        <button className="btn btn-success btn-outlined-success btn-full btn-rounded">Login</button>
+                                    </div>
+
+                                    <p className="text text-normal mt-5 text-center">New user? <span><a href="/" className="text text-links">Create an account</a></span>
+                                    </p>
+                                </form>
+
+                                <div className="striped">
+                                    <span className="striped-line"></span>
+                                    <span className="striped-text">Or</span>
+                                    <span className="striped-line"></span>
+                                </div>
+
+                                <div className="d-flex">
+                                    <button className="btn btn-success btn-outlined-success btn-rounded">Sign in with Google</button>
+                                    <button className="btn btn-success btn-outlined-success btn-rounded">Sign in with Facebook</button>
+                                    <button className="btn btn-success btn-outlined-success btn-rounded">Sign in with Apple</button>
+                                </div>
+                                <span style={snackbar ? { display: 'none' } : { display: 'block' }}  >
+                                    <Snackbar />
+                                </span>
                             </div>
                         </div>
-                        <form onSubmit={SubmitEvent} className="form">
-                            <div className="input-control">
-                                <input type="email" name="email" className="input-field" placeholder="john@gmail.com" required value={user.email} onChange={InputEvent} />
-                            </div>
-                            <div className="input-control">
-                                <input type="password" name="password" className="input-field" placeholder="m38rmF$" required value={user.password} onChange={InputEvent} />
-                            </div>
-                            <div className="input-control">
-                                <button className="btn btn-success btn-outlined-success btn-full btn-rounded">Login</button>
-                            </div>
-
-                            <p className="text text-normal mt-5 text-center">New user? <span><a href="/" className="text text-links">Create an account</a></span>
-                            </p>
-                        </form>
-
-                        <div className="striped">
-                            <span className="striped-line"></span>
-                            <span className="striped-text">Or</span>
-                            <span className="striped-line"></span>
-                        </div>
-
-                        <div className="d-flex">
-                            <button className="btn btn-success btn-outlined-success btn-rounded">Sign in with Google</button>
-                            <button className="btn btn-success btn-outlined-success btn-rounded">Sign in with Facebook</button>
-                            <button className="btn btn-success btn-outlined-success btn-rounded">Sign in with Apple</button>
-                        </div>
-                        <span style={snackbar ? { display: 'none' } : { display: 'block' }}  >
-                            <Snackbar />
-                        </span>
-                    </div>
-                </div>
-            </main >
-
+                    </main >
+                    : history.push('/')
+            }
         </>
     )
 }

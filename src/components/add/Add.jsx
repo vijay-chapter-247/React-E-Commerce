@@ -32,6 +32,8 @@ const Add = () => {
             url: ""
         })
     }
+
+    const { title, price, description, category, url } = product;
     return (
         <>
             {
@@ -45,19 +47,19 @@ const Add = () => {
                             </div>
                             <form onSubmit={SubmitEvent} className="form">
                                 <div className="input-control">
-                                    <input type="text" name="title" className="input-field" placeholder="Enter Title" required value={product.title} onChange={InputEvent} />
+                                    <input type="text" name="title" className="input-field" placeholder="Enter Title" required value={title} onChange={InputEvent} />
                                 </div>
                                 <div className="input-control">
-                                    <input type="number" name="price" className="input-field" placeholder="Enter Price" required value={product.price} onChange={InputEvent} />
+                                    <input type="number" name="price" className="input-field" placeholder="Enter Price" required value={price} onChange={InputEvent} />
                                 </div>
                                 <div className="input-control">
-                                    <input type="text" name="description" className="input-field" placeholder="Enter Description" required value={product.description} onChange={InputEvent} />
+                                    <input type="text" name="description" className="input-field" placeholder="Enter Description" required value={description} onChange={InputEvent} />
                                 </div>
                                 <div className="input-control">
-                                    <input type="text" name="category" className="input-field" placeholder="Enter Category" required value={product.category} onChange={InputEvent} />
+                                    <input type="text" name="category" className="input-field" placeholder="Enter Category" required value={category} onChange={InputEvent} />
                                 </div>
                                 <div className="input-control">
-                                    <input type="text" name="url" className="input-field" placeholder="Enter Image Url" required value={product.url} onChange={InputEvent} />
+                                    <input type="text" name="url" className="input-field" placeholder="Enter Image Url" required value={url} onChange={InputEvent} />
                                 </div>
                                 <div className="input-control">
                                     <button className="btn btn-success btn-outlined-success btn-full btn-rounded">Submit</button>
@@ -75,10 +77,6 @@ const Add = () => {
                                 <button className="btn btn-success btn-outlined-success btn-rounded">Add with Facebook</button>
                                 <button className="btn btn-success btn-outlined-success btn-rounded">Add with Apple</button>
                             </div>
-
-                            {/* <span style={snackbar ? { display: 'none' } : { display: 'block' }}  >
-                                <Snackbar />
-                            </span> */}
                         </div>
                     </div>
                 </main >

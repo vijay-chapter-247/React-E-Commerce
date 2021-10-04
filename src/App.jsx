@@ -18,6 +18,7 @@ const App = () => {
   return (
     <>
       <Header toggle={show} Toggle={toggle} />
+      {/* <Header /> */}
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/add" exact render={() => <Add />} />
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/products" exact render={() => <Products />} />
         <Route path="/product/:id" exact component={() => <Product />} />
         <Route path="/login" exact component={() => <Login Toggle={toggle} />} />
+        {/* <Route path="/login" exact component={() => <Login />} /> */}
         <Route component={Error} />
       </Switch>
       <Footer />

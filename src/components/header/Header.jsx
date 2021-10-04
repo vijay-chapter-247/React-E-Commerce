@@ -10,6 +10,8 @@ const Header = (props) => {
         props.Toggle();
     }
 
+    // console.log(props.toggle);
+
     return (
         <>
             <section className="main">
@@ -40,26 +42,26 @@ const Header = (props) => {
                             </NavLink>
                         </li>
                         {
-                            !props.toggle && <li>
+                            localStorage.getItem('loginUser') ? <li>
                                 <NavLink to="/profile">
                                     <button className="btn btn-success btn-outlined-success mx-2">
                                         Profile
                                     </button>
                                 </NavLink>
-                            </li>
+                            </li> : null
                         }
                         {
-                            !props.toggle && <li>
+                            localStorage.getItem('loginUser') ? <li>
                                 <NavLink to="/add">
                                     <button className="btn btn-success btn-outlined-success mx-2">
                                         Add Product
                                     </button>
                                 </NavLink>
-                            </li>
+                            </li> : null
                         }
 
                         {
-                            props.toggle ? <li>
+                           !localStorage.getItem('loginUser') ? <li>
                                 <NavLink to="/login">
                                     <button className="btn btn-success btn-outlined-success mx-2">
                                         Login
